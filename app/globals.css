@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #1a365d;
+  --color-primary-light: #2a4a7f;
+  --color-primary-dark: #0f2341;
+  --color-accent: #c53030;
+  --color-accent-light: #e53e3e;
+  --color-gold: #d69e2e;
+  --color-gold-light: #ecc94b;
+  --color-bg: #f7fafc;
+  --color-bg-white: #ffffff;
+  --color-text: #1a202c;
+  --color-text-light: #4a5568;
+  --color-text-lighter: #718096;
+  --color-border: #e2e8f0;
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-primary-light: var(--color-primary-light);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-accent: var(--color-accent);
+  --color-accent-light: var(--color-accent-light);
+  --color-gold: var(--color-gold);
+  --color-gold-light: var(--color-gold-light);
+  --color-bg: var(--color-bg);
+  --color-bg-white: var(--color-bg-white);
+  --color-text: var(--color-text);
+  --color-text-light: var(--color-text-light);
+  --color-text-lighter: var(--color-text-lighter);
+  --color-border: var(--color-border);
+  --font-sans: var(--font-noto-sans-sc);
+  --font-serif: var(--font-noto-serif-sc);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
