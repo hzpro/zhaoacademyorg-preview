@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { siteConfig } from "@/content/site";
 import { navigation } from "@/content/navigation";
@@ -11,8 +12,16 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <h3 className="font-serif text-xl font-bold">{siteConfig.name}</h3>
-            <p className="mt-1 text-sm text-white/60">{siteConfig.nameEn}</p>
+            <div className="flex items-center gap-3">
+              <Image
+                src="/images/logo.jpg"
+                alt={`${siteConfig.name} Logo`}
+                width={36}
+                height={36}
+                className="rounded-md"
+              />
+              <h3 className="font-serif text-xl font-bold">{siteConfig.name}</h3>
+            </div>
             <p className="mt-4 text-sm leading-relaxed text-white/80">
               专业留学咨询服务，助力学生实现名校梦想。
             </p>

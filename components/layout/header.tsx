@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { navigation } from "@/content/navigation";
 import { siteConfig } from "@/content/site";
@@ -29,20 +30,20 @@ export function Header() {
       >
         <Container>
           <div className="flex h-16 items-center justify-between sm:h-20">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-3">
+              <Image
+                src="/images/logo.jpg"
+                alt={`${siteConfig.name} Logo`}
+                width={40}
+                height={40}
+                className="rounded-md sm:h-10 sm:w-10"
+              />
               <span
                 className={`font-serif text-xl font-bold transition-colors sm:text-2xl ${
                   scrolled ? "text-primary" : "text-white"
                 }`}
               >
                 {siteConfig.name}
-              </span>
-              <span
-                className={`hidden text-sm font-medium transition-colors sm:inline ${
-                  scrolled ? "text-text-light" : "text-white/80"
-                }`}
-              >
-                {siteConfig.nameEn}
               </span>
             </Link>
 

@@ -1,7 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { User, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { founderContent } from "@/content/about";
 import { Container } from "@/components/ui/container";
 
@@ -17,9 +18,15 @@ export function FounderProfile() {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center gap-10 md:flex-row md:items-start"
           >
-            {/* Avatar placeholder */}
-            <div className="flex h-56 w-56 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
-              <User className="h-28 w-28 text-primary/40" />
+            {/* Founder photo */}
+            <div className="h-56 w-56 shrink-0 overflow-hidden rounded-2xl">
+              <Image
+                src="/images/teacher-zhao.webp"
+                alt={founderContent.name}
+                width={224}
+                height={224}
+                className="h-full w-full object-cover"
+              />
             </div>
 
             <div>

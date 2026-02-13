@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { User } from "lucide-react";
 import { aboutPreviewContent } from "@/content/home";
 import { Container } from "@/components/ui/container";
 
@@ -18,9 +18,15 @@ export function AboutPreview() {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-center gap-8 md:flex-row"
           >
-            {/* Avatar placeholder */}
-            <div className="flex h-48 w-48 shrink-0 items-center justify-center rounded-full bg-primary/10">
-              <User className="h-24 w-24 text-primary/40" />
+            {/* Founder photo */}
+            <div className="h-48 w-48 shrink-0 overflow-hidden rounded-full">
+              <Image
+                src="/images/teacher-zhao.webp"
+                alt={aboutPreviewContent.name}
+                width={192}
+                height={192}
+                className="h-full w-full object-cover"
+              />
             </div>
 
             <div>
