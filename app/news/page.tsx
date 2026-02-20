@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { Newspaper } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
+import { articles, formatDate } from "@/content/articles";
 
 export const metadata: Metadata = {
   title: "教育资讯",
-  description: "硅谷赵老师教育资讯，了解最新留学动态、名校录取趋势和申请攻略。",
+  description:
+    "硅谷赵老师教育文章——留学申请策略、AI 时代的教育判断与长期成长思考。",
 };
 
 export default function NewsPage() {
@@ -16,21 +20,55 @@ export default function NewsPage() {
             教育资讯
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-center text-white/70">
-            最新留学动态与申请攻略
+            关于留学申请、AI 时代教育判断与长期成长的深度文章
           </p>
         </Container>
       </section>
 
-      <section className="py-20">
+      <section className="py-20 bg-bg">
         <Container>
-          <div className="mx-auto max-w-md text-center">
-            <Newspaper className="mx-auto h-16 w-16 text-text-lighter" />
-            <h2 className="mt-6 font-serif text-2xl font-bold text-text">
-              即将上线
-            </h2>
-            <p className="mt-4 text-text-light">
-              我们正在精心准备教育资讯栏目，将为您带来最新的留学动态、名校录取趋势分析和实用申请攻略。敬请期待！
-            </p>
+          <div className="mx-auto max-w-4xl">
+            <div className="grid gap-10 sm:gap-12">
+              {articles.map((article) => (
+                <article
+                  key={article.slug}
+                  className="group grid sm:grid-cols-[280px_1fr] gap-6 sm:gap-8 items-start"
+                >
+                  <Link href={`/news/${article.slug}`} className="block overflow-hidden rounded-xl aspect-[4/3]">
+                    <Image
+                      src={article.coverImage}
+                      alt={article.title}
+                      width={560}
+                      height={420}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </Link>
+                  <div className="flex flex-col">
+                    <p className="text-sm font-medium text-gold">
+                      {formatDate(article.date)}
+                    </p>
+                    <Link href={`/news/${article.slug}`}>
+                      <h2 className="mt-2 font-serif text-2xl font-bold text-text leading-snug hover:text-primary transition-colors">
+                        {article.title}
+                      </h2>
+                    </Link>
+                    <p className="mt-1 text-text-light font-serif text-base">
+                      {article.subtitle}
+                    </p>
+                    <p className="mt-3 text-text-light leading-relaxed text-sm line-clamp-3">
+                      {article.excerpt}
+                    </p>
+                    <Link
+                      href={`/news/${article.slug}`}
+                      className="mt-5 inline-flex items-center gap-1.5 text-primary font-medium text-sm hover:gap-2.5 transition-all"
+                    >
+                      阅读全文
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </Container>
       </section>
